@@ -22,6 +22,7 @@
   <body>
     <div class="forms-out">
       <div class="forms-in">
+
         <div id="registration-page" class="hide">
           <button id="show-login">Sign In</button>
           <h3>Sign Up</h3>
@@ -39,22 +40,35 @@
         </div>
 
         <div id="login-page">
-          
-          <h3>Sign In</h3>
-          Email <br />
-          <input type="email" id="login-email" /><br />
-          Password <br />
-          <input type="password" id="login-password" /><br />
-          <p id="forgot-password">Forgot Password</p>
-          <center><button id="login">Sign In</button></center>
-          <br>
-          <center><button id="show-register">Sign Up</button></center>
+
+          <h3>Login to Let's Meet!</h3>
+
+          <div id="login-container-1">
+            <div id="form">
+              Email:
+              <input type="email" id="login-email"/>
+            </div>
+
+            <div id="form">
+              Password: 
+              <input type="password" id="login-password"/>
+            </div>
+
+            <center><button id="login">Sign In</button></center>
+
+            <p id="forgot-password">Forgot Password</p>
+          </div>
+
+          <div id="login-container-2">
+            <center><button id="show-register">Create my Account</button></center>
+          </div>
         </div>
 
         <div id="homepage" class="hide">
           <button id="signout">Sign Out</button>
           <h3>Logged In</h3>
         </div>
+
       </div>
     </div>
 
