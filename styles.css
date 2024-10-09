@@ -6,23 +6,19 @@
 
 .forms-in {
     width: 100%;
-    margin: 0 auto;
     color: black;
-    padding: 15px 0;
   }
 
 .forms-in div {
-    padding: 15px 20px;
-    max-width: 600px;
+    padding: 10px 20px;
+    max-width: 550px;
     margin: 0 auto;
     background: #5ce1e6;
     border-radius: 50px;
-    margin-bottom: 15px;
   }
 
 .forms-in h3 {
     text-align: center;
-    font-size: xx-large
   }
 
 .forms-in input {
@@ -55,7 +51,7 @@
 
 #forgot-password {
     text-align: center;
-    font-size: 16px;
+    font-size: 0.75rem;
     cursor: pointer;
     padding-top: 10px;
     text-decoration: underline;
@@ -76,12 +72,18 @@
 
 #login-container-1 {
   background-color: white;
-  margin: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 0px;
 }
 
 #login-container-2 {
   background-color: white;
-  margin: 50px
+  margin-top: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 20px;
+  font-size: 0.8rem
 }
 
 #show-register{
@@ -93,7 +95,7 @@
 }
 
 #login{
-  font-size: 20px;
+  font-size: 1.25rem;
   border-radius: 2rem;
   background: linear-gradient(to right, #cbfffd, #ffa9f9);
   color: black;
@@ -102,7 +104,7 @@
 }
 
 #login-title{
-  font-size: 50px;
+  font-size: 2rem;
 }
 
 
