@@ -17,3 +17,17 @@ function showLogin(){
     document.querySelector("#registration-page").classList.add("hide");
     document.querySelector("#login-page").classList.remove("hide");
 }
+
+//When forgot password is pressed, prompt user to enter email and then press
+document.querySelector("#forgot-password").addEventListener("click", () => {
+    const email = document.querySelector("#login-email").value;
+    if (email.trim() == ""){
+        alert("Enter email, and then press forgot password again")
+    } else {
+        forgotPassword("Your email is " + email);
+    }
+})
+
+function forgotPassword(email){
+    alert(email)
+}
