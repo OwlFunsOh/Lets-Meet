@@ -8,7 +8,7 @@ import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com
 // Your web app's Firebase configuration
 
 const firebaseConfig = {
-    //insert secret stuff here
+    //insert secrets here
 };
 
 // Initialize Firebase
@@ -81,4 +81,13 @@ function register() {
 document.querySelector("#register").addEventListener("click", () => {
     register();
 })
+
+//register when you hit the enter key
+document.querySelector("#confirm-password").addEventListener("keyup", (e) => {
+  if (e.keyCode == 13) {
+    e.preventDefault();
+
+    register();
+  }
+});
 
