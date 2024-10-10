@@ -1,3 +1,27 @@
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js'
+
+import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js'
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDohRYNwOQsh8YLeevAHeGi57BsPDC311E",
+    authDomain: "lets-meet-47a8c.firebaseapp.com",
+    projectId: "lets-meet-47a8c",
+    storageBucket: "lets-meet-47a8c.appspot.com",
+    messagingSenderId: "847905556985",
+    appId: "1:847905556985:web:df8375a05e80ed9c95d528"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Initialize Firebase Authentication and get a reference to the service
+const auth = getAuth(app);
+
 //Sign up page when you hit Sign up button
 document.querySelector("#show-register").addEventListener("click", () => {
     showRegistration();
@@ -31,3 +55,35 @@ document.querySelector("#forgot-password").addEventListener("click", () => {
 function forgotPassword(email){
     alert(email)
 }
+
+//function to register an account
+function register() {
+    const email = document.querySelector("#registration-email").value
+    const password = document.querySelector("#registration-password").value
+    const verifyPassword = document.querySelector("#confirm-password").value
+
+    if (email.trim() == ""){
+        alert("Enter email");
+    } else if (password.trim().length < 7){
+        alert("Password must be at least 7 characters");
+    } else if (password != verifyPassword){
+        alert("Passwords do not match");
+    } else {
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            //signed up
+            const user = userCredential.user;
+            alert("Creating Account :D")
+        }) 
+         .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage)
+         });
+    }
+}
+
+document.querySelector("#register").addEventListener("click", () => {
+    register();
+})
+
