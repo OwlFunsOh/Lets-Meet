@@ -9,7 +9,7 @@ function showRegistration(){
 }
 
 //Return to Sign in page when Sign in is hit on the sign up page
-document.querySelector("#show-login").addEventListener("click", () => {
+document.querySelector("#back").addEventListener("click", () => {
     showLogin();
 })
 

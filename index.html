@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Authentication</title>
+    <title>Let's Meet!</title>
     <link
       href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap"
       rel="stylesheet"
@@ -24,19 +24,30 @@
       <div class="forms-in">
 
         <div id="registration-page" class="hide">
-          <button id="show-login">Sign In</button>
-          <h3>Sign Up</h3>
-          Email <br />
-          <input type="email" id="registration-email" /><br />
-          Confirm Email <br />
-          <input
-            type="email"
-            id="registration-reemail"
-            autocomplete="disable"
-          /><br />
-          Password <br />
-          <input type="password" id="registration-password" /><br />
-          <center><button id="register">Sign Up</button></center>
+          <button id="back">Back</button>
+          <h3 id="signup-title">Sign Up</h3>
+
+          <div id="registration-container-1">
+            <div id="account-input-container">
+              Email
+              <input type="email" id="registration-email" /><br />
+            </div>
+
+            <div id="account-input-container">
+              Password
+              <input
+                type="password"
+                id="registration-password"
+                autocomplete="disable"
+              /><br />
+            </div>
+
+            <div id="account-input-container">
+              Confirm Password
+              <input type="password" id="confirm-password" /><br />
+            </div>
+            <center><button id="register">Sign Up</button></center>
+          </div>
         </div>
 
         <div id="login-page">
