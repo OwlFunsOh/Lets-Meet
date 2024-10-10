@@ -28,15 +28,15 @@
     box-sizing: border-box;
     border-radius: 10px;
     border-color: black;
-    color: white;
+    color: black;
   }
 
 .forms-in button {
     border: none;
     padding: 7px 20px;
-    background: #e8f8ff;
-    color: #d88518;
-    border-radius: 4px;
+    background: linear-gradient(to right, #cbfffd, #ffa9f9);
+    color: black;
+    border-radius: 2rem;
     cursor: pointer;
     font-weight: bold;
   }
@@ -115,7 +115,8 @@
   background-color: white;
   margin-left: 50px;
   margin-right: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 45px;
+  padding-top: 20px;
 }
 
 #signup-title{
@@ -123,13 +124,66 @@
   font-size: 2rem;
 }
 
-#account-input-container{
+#account-input-container-1{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 5px;
+  margin-right: 0px;
+  margin-left: 5px;
+  margin-top: 10px;
   background-color: white;
   font-size: 1rem;
+}
+
+#registration-email{
+  width: 100%;
+  margin-left: 50px;
+  margin-right: 10px;
+}
+
+#account-input-container-2{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 10px;
+  margin-left: 5px;
+  background-color: white;
+  font-size: 1rem;
+}
+
+#registration-password{
+  width: 100%;
+  margin-left: 23px;
+}
+
+#account-input-container-3{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 5px;
+  margin-right: 10px;
+  background-color: white;
+}
+
+#confirm-password{
+  width: 100%;
+}
+
+#back{
+  margin: 15px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+#register{
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 25px;
+  padding-left: 25px;
+  margin-top: 20px;
 }
 
 
