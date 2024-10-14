@@ -1,1 +1,8 @@
-.env
+# Virtual Environment
+venv/
+
+# Flask
+instance/*
+
+# Flask.Python Stack
+__pycahce__/
