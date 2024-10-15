@@ -1,0 +1,189 @@
+.forms-out {
+    margin: 0 auto;
+    font-family: "Fira Sans", sans-serif;
+    padding: 15px 0;
+  }
+
+.forms-in {
+    width: 100%;
+    color: black;
+  }
+
+.forms-in div {
+    padding: 10px 20px;
+    max-width: 550px;
+    margin: 0 auto;
+    background: #5ce1e6;
+    border-radius: 50px;
+  }
+
+.forms-in h3 {
+    text-align: center;
+  }
+
+.forms-in input {
+    width: 75%;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border-color: black;
+    color: black;
+  }
+
+.forms-in button {
+    border: none;
+    padding: 7px 20px;
+    background: linear-gradient(to right, #cbfffd, #ffa9f9);
+    color: black;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+.forms-in button:hover {
+    opacity: 0.6;
+  }
+
+.hide {
+    display: none;
+  }
+
+/* The next section is for the login page */
+
+#forgot-password {
+    text-align: center;
+    font-size: 0.75rem;
+    cursor: pointer;
+    padding-top: 10px;
+    text-decoration: underline;
+  }
+
+#forgot-password:hover {
+    opacity: 0.6;
+  }
+
+#form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 5px;
+  background-color: white;
+  font-size: 16px;
+}
+
+#login-container-1 {
+  background-color: white;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 0px;
+}
+
+#login-container-2 {
+  background-color: white;
+  margin-top: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 20px;
+  font-size: 0.8rem
+}
+
+#show-register{
+  color: black;
+}
+
+#show-register:hover{
+  opacity: 0.6;
+}
+
+#login{
+  font-size: 1.25rem;
+  border-radius: 2rem;
+  background: linear-gradient(to right, #cbfffd, #ffa9f9);
+  color: black;
+  width: 150px;
+  height: 50px;
+}
+
+#login-title{
+  font-size: 2rem;
+}
+
+/* The next section is for the registration/account creation page */
+
+#registration-container-1 {
+  background-color: white;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 45px;
+  padding-top: 20px;
+}
+
+#signup-title{
+  margin-top: 0px;
+  font-size: 2rem;
+}
+
+#account-input-container-1{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 0px;
+  margin-left: 5px;
+  margin-top: 10px;
+  background-color: white;
+  font-size: 1rem;
+}
+
+#registration-email{
+  width: 100%;
+  margin-left: 50px;
+  margin-right: 10px;
+}
+
+#account-input-container-2{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 10px;
+  margin-left: 5px;
+  background-color: white;
+  font-size: 1rem;
+}
+
+#registration-password{
+  width: 100%;
+  margin-left: 23px;
+}
+
+#account-input-container-3{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 5px;
+  margin-right: 10px;
+  background-color: white;
+}
+
+#confirm-password{
+  width: 100%;
+}
+
+#back{
+  margin: 15px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+#register{
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 25px;
+  padding-left: 25px;
+  margin-top: 20px;
+}
+
+
