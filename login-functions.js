@@ -1,6 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js'
 
-import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js'
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js'
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -8,7 +8,12 @@ import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com
 // Your web app's Firebase configuration
 
 const firebaseConfig = {
-    //insert secret stuff here
+    apiKey: "AIzaSyDohRYNwOQsh8YLeevAHeGi57BsPDC311E",
+    authDomain: "lets-meet-47a8c.firebaseapp.com",
+    projectId: "lets-meet-47a8c",
+    storageBucket: "lets-meet-47a8c.appspot.com",
+    messagingSenderId: "847905556985",
+    appId: "1:847905556985:web:df8375a05e80ed9c95d528"
 };
 
 // Initialize Firebase
@@ -47,9 +52,6 @@ document.querySelector("#forgot-password").addEventListener("click", () => {
     }
 })
 
-function forgotPassword(email){
-    alert(email)
-}
 
 //function to register an account
 function register() {
@@ -73,7 +75,7 @@ function register() {
          .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            alert(errorMessage)
+            alert(errorMessage);
          });
     }
 }
@@ -82,3 +84,58 @@ document.querySelector("#register").addEventListener("click", () => {
     register();
 })
 
+//register when you hit the enter key
+document.querySelector("#confirm-password").addEventListener("keyup", (e) => {
+  if (e.keyCode == 13) {
+    e.preventDefault();
+
+    register();
+  }
+});
+
+//function to sign in to website
+function signIn() {
+    const email = document.querySelector("#login-email").value
+    const password = document.querySelector("#login-password").value
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        const user = userCredential.user;
+        window.location.href = "homepage.html";
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+    })
+}
+
+//Sign in
+document.querySelector("#login").addEventListener("click", () => {
+    signIn()
+})
+
+//sign in when enter is hit on password
+document.querySelector("#login-password").addEventListener("keyup", (e) => {
+    if(e.keyCode == 13){
+        e.preventDefault();
+        signIn();
+    }
+})
+
+//forgot password stuff
+function resetPassword(){
+    const email = document.querySelector("#login-email").value
+    sendPasswordResetEmail(auth, email)
+    .then(() => {
+        alert("Password reset email sent!")
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+    });
+}
+
+document.querySelector("#forgot-password").addEventListener("click", () => {
+    resetPassword()
+})
