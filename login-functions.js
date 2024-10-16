@@ -93,13 +93,14 @@ document.querySelector("#confirm-password").addEventListener("keyup", (e) => {
   }
 });
 
+//function to sign in to website
 function signIn() {
     const email = document.querySelector("#login-email").value
     const password = document.querySelector("#login-password").value
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         const user = userCredential.user;
-        alert("Signed in!"); //add different webpage here
+        window.location.href = "homepage.html";
     })
     .catch((error) => {
         const errorCode = error.code;
