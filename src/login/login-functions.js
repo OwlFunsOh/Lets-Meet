@@ -100,7 +100,7 @@ function signIn() {
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         const user = userCredential.user;
-        window.location.href = "homepage.html";
+        window.location.href = "../homepage/homepage.html";
     })
     .catch((error) => {
         const errorCode = error.code;
