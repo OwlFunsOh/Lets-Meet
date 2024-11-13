@@ -1,26 +1,10 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js'
+import { auth } from '/src/firebase.js';
 
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js'
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-
-const firebaseConfig = {
-    apiKey: "AIzaSyDohRYNwOQsh8YLeevAHeGi57BsPDC311E",
-    authDomain: "lets-meet-47a8c.firebaseapp.com",
-    projectId: "lets-meet-47a8c",
-    storageBucket: "lets-meet-47a8c.appspot.com",
-    messagingSenderId: "847905556985",
-    appId: "1:847905556985:web:df8375a05e80ed9c95d528"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-// Initialize Firebase Authentication and get a reference to the service
-const auth = getAuth(app);
 
 //Sign up page when you hit Sign up button
 document.querySelector("#show-register").addEventListener("click", () => {
