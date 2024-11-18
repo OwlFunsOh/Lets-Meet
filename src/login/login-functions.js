@@ -55,6 +55,7 @@ function register() {
             //signed up
             const user = userCredential.user;
             alert("Creating Account :D")
+            showLogin();
         }) 
          .catch((error) => {
             const errorCode = error.code;
