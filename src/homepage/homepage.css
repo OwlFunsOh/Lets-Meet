@@ -16,7 +16,7 @@
 #groups-container{
   width: 20%;
   background-color: #5ce1e6;
-  border-radius: 20px;
+  border-radius: 10px;
   margin-left: 15px;
   margin-right: 15px;
 }
@@ -24,36 +24,29 @@
 #calendar-container{
   width: 80%;
   background-color: #5ce1e6;
-  border-radius: 20px;
+  border-radius: 10px;
   margin-right: 15px;
   justify-content: space-evenly;
 }
 
 #calendar-grid {
   display: grid;
-  grid-template-columns: repeat(7,1fr);
-  grid-template-rows: repeat(24, 1fr);
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(8, 1fr);
   gap: 10px;
-  width: 80%;
-  height: 80%;
+  width: 98%;
+  height: 88%;
   background-color: #ffffff;
   border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: auto;
-}
-
-.grid-column {
-  background-color: #ffffff;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
+  column-gap: 5px;
+  row-gap: 2px;
 }
 
 .grid-item {
-  flex: 1;
-  background-color: #e8f7ff;
-  border-bottom: 1px solid #cccccc;
-  justify-content: center;
-  font-size: 1rem;
+  background-color: beige;
+  border:px solid black;
+  padding: 2px;
+  text-align: match-parent;
 }

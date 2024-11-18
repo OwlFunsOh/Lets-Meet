@@ -17,21 +17,17 @@ logoutButton.addEventListener('click', () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const calendarGrid = document.getElementById('calendar-grid');
+  const calendarGrid = document.getElementById("calendar-grid");
 
-  const rows = 5;
-  const cols = 7;
+  // Specify the number of rows and columns
+  const rows = 8; // Number of rows
+  const cols = 7; // Number of columns
 
+  // Populate the grid dynamically
   for (let i = 0; i < rows * cols; i++) {
-    const cell = document.createElement('div');
-    cell.classList.add('grid-column');
-    
-    for (let row = 0; row < rows; row++) {
-      const rowDiv = document.createElement('div');
-      rowDiv.classList.add('grid-item');
-      rowDiv.textContent = 'Row ${row + 1}';
-      column.appendChild(rowDiv);
-    }
-    calendarGrid.appendChild(column);
+    const gridItem = document.createElement("div");
+    gridItem.classList.add("grid-item"); // Add class for styling
+    gridItem.textContent = `Item ${i + 1}`; // Optional: Add text to each cell
+    calendarGrid.appendChild(gridItem); // Append the cell to the grid container
   }
 });
