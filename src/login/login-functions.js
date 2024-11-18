@@ -37,22 +37,21 @@ document.querySelector("#forgot-password").addEventListener("click", () => {
 })
 
 //function to register to database
-function register_user_to_db(user) {
+async function register_user_to_db(email) {
     try{
-        const docRef = addDoc(collection(db, "users"), {
-            uid: user.uid,
+        const docRef = await addDoc(collection(db, "users"), {
             name: "User",
-            email: user.email
+            email: email
         });
-        alert("Document written with ID: ", docRef.id);    
+        console.log("Document written with ID: ", docRef.id);
     } catch (error) {
-        alert("Error adding document: ", error);
+        console.log("Error adding document: ", error);
     }
 }
 
 
 //function to register an account
-function register() {
+async function register() {
     const email = document.querySelector("#registration-email").value
     const password = document.querySelector("#registration-password").value
     const verifyPassword = document.querySelector("#confirm-password").value
@@ -69,14 +68,14 @@ function register() {
             //signed up
             const user = userCredential.user;
             //adding to database
-            register_user_to_db(user);
+            register_user_to_db(email);
             alert("Creating Account :D")
             showLogin();
         }) 
          .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            alert(errorMessage);
+            console.log(errorMessage);
          });
     }
 }
