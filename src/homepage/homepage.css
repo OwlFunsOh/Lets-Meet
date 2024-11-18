@@ -7,3 +7,18 @@
   height: 50px;
   cursor: pointer;
 }
+
+.background-container{
+  height: 100vh;
+  display: flex;
+}
+
+#groups-container{
+  width: 20%;
+  background-color: #5ce1e6;
+}
+
+#calendar-container{
+  width: 80%;
+  background-color: #5ce1e6;
+}
