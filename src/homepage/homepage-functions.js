@@ -27,7 +27,32 @@ document.addEventListener("DOMContentLoaded", () => {
   for (let i = 0; i < rows * cols; i++) {
     const gridItem = document.createElement("div");
     gridItem.classList.add("grid-item"); // Add class for styling
-    gridItem.textContent = `Item ${i + 1}`; // Optional: Add text to each cell
+    switch (i) {
+      case 0:
+        gridItem.textContent = "Sunday"
+        break;
+      case 1:
+        gridItem.textContent = "Monday";
+        break;
+      case 2:
+        gridItem.textContent = "Tuesday";
+        break;
+      case 3:
+        gridItem.textContent = "Wednesday";
+        break;
+      case 4:
+        gridItem.textContent = "Thursday";
+        break;
+      case 5:
+        gridItem.textContent = "Friday";
+        break;
+      case 6:
+        gridItem.textContent = "Saturday";
+        break;
+      default:
+        gridItem.textContent = `Item ${i + 1}`; // Optional: Add text to each cell
+        break;
+    }
     calendarGrid.appendChild(gridItem); // Append the cell to the grid container
   }
 });
