@@ -6,9 +6,13 @@
   width: 150px;
   height: 50px;
   cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
 }
 
 .background-container{
+  margin-top: 100px;
   height: 100vh;
   display: flex;
   /* background-color: #dfe1d5;  */
@@ -17,25 +21,26 @@
 #groups-container{
   width: 20%;
   background-color: #8fbdc7;
-  border-radius: 10px;
+  border-radius: 50px;
   margin-left: 15px;
   margin-right: 15px;
+  height: 800px;
 }
 
 #calendar-container{
   width: 80%;
   background-color: #8fbdc7;
-  border-radius: 10px;
+  border-radius: 50px;
   margin-right: 15px;
   justify-content: space-evenly;
+  height: 800px;
 }
 
 #calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(8, 1fr);
   gap: 10px;
-  width: 98%;
+  width: 90%;
   height: 88%;
   background-color: #dfe1d5;
   border-radius: 10px;
@@ -43,6 +48,8 @@
   margin-right: auto;
   column-gap: 5px;
   row-gap: 2px;
+  margin-top: 45px;
+  margin-bottom: 45px;
 }
 
 .grid-item {
@@ -50,5 +57,4 @@
   border:px solid black;
   padding: 2px;
   text-align: center;
-
 }
