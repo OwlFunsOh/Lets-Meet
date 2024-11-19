@@ -1,5 +1,5 @@
 import { auth, db } from '/src/firebase.js';
-import { collection, addDoc } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js'
+import { doc, collection, setDoc, addDoc } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js'
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -37,11 +37,12 @@ document.querySelector("#forgot-password").addEventListener("click", () => {
 })
 
 //function to register to database
-async function register_user_to_db(email) {
+async function register_user_to_db(email, userID) {
     try{
-        const docRef = await addDoc(collection(db, "users"), {
+        const docRef = await setDoc(doc(db, "users", userID), {
             name: "User",
-            email: email
+            email: email,
+            groups: [""]
         });
         console.log("Document written with ID: ", docRef.id);
     } catch (error) {
@@ -67,8 +68,9 @@ async function register() {
         .then((userCredential) => {
             //signed up
             const user = userCredential.user;
+            const userID = user.uid;
             //adding to database
-            register_user_to_db(email);
+            register_user_to_db(email, userID);
             alert("Creating Account :D")
             showLogin();
         }) 
