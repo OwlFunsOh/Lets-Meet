@@ -21,6 +21,10 @@ logoutButton.addEventListener('click', () => {
 document.addEventListener("DOMContentLoaded", () => {
   const calendarGrid = document.getElementById("calendar-grid");
 
+  // Alfonso: add joined group buttons, use #group-button css
+
+
+
   // Specify the number of rows and columns
   const rows = 8; // Number of rows
   const cols = 7; // Number of columns

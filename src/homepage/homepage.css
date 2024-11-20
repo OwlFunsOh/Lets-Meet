@@ -9,6 +9,17 @@
   margin-right: 20px;
 }
 
+#group-button{
+  font-size: 1.25rem;
+  border-radius: 2rem;
+  background: #dfe1d5;
+  color: black;
+  width: 200px;
+  height: 60px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
 .background-container{
   margin-top: 20px;
   height: 100vh;
@@ -23,6 +34,7 @@
   margin-left: 15px;
   margin-right: 15px;
   height: 800px;
+  text-align: center;
 }
 
 #calendar-container{
