@@ -10,7 +10,6 @@ logoutButton.addEventListener('click', () => {
   // You can add your logout logic here
   auth.signOut().then(() => {
     //sign out successful
-    USERID = "";
     window.location.href = "/";
   }).catch((error) => {
     //an error happened
