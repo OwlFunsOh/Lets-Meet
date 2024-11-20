@@ -9,6 +9,17 @@
   margin-right: 20px;
 }
 
+#add-group-button{
+  font-size: 1.25rem;
+  border-radius: 2rem;
+  background: #dfe1d5;
+  color: black;
+  width: 200px;
+  height: 60px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
 #group-button{
   font-size: 1.25rem;
   border-radius: 2rem;

@@ -87,3 +87,10 @@ onAuthStateChanged(auth, (user) => {
   }
 })
 
+async function addgroup() {
+  window.location.href = "/src/grouppage/grouppage.html";
+}
+
+document.querySelector("#add-group-button").addEventListener("click", () => {
+  addgroup();
+})
