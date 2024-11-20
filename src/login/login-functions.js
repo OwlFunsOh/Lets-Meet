@@ -5,7 +5,6 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswor
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-
 //Sign up page when you hit Sign up button
 document.querySelector("#show-register").addEventListener("click", () => {
     showRegistration();

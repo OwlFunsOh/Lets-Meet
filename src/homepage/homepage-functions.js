@@ -1,4 +1,6 @@
-import { auth } from '/src/firebase.js';
+import { auth, db } from '/src/firebase.js';
+import { doc, collection, setDoc, addDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js'
+import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js'
 
 // Select the button by its ID
 const logoutButton = document.getElementById('logout');
@@ -8,6 +10,7 @@ logoutButton.addEventListener('click', () => {
   // You can add your logout logic here
   auth.signOut().then(() => {
     //sign out successful
+    USERID = "";
     window.location.href = "/";
   }).catch((error) => {
     //an error happened
@@ -56,3 +59,28 @@ document.addEventListener("DOMContentLoaded", () => {
     calendarGrid.appendChild(gridItem); // Append the cell to the grid container
   }
 });
+
+//adding greeting
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    const userId = user.uid;
+    const userDocRef = doc(db, "users", userId);
+
+    getDoc(userDocRef).then((doc) => {
+      if (doc.exists()) {
+        const userData = doc.data();
+        const userName = userData.name;
+
+        //display greeting
+        document.getElementById("greeting").textContent = "Hello, " + userName;
+      } else {
+        console.log("User not found");
+      }
+    }).catch((error) => {
+      console.error("Error getting document: ", error);
+    })
+  } else {
+    console.log("User is not signed in");
+  }
+})
+
