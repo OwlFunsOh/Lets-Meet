@@ -55,3 +55,8 @@ async function addgroup() {
 document.querySelector("#add-group-button").addEventListener("click", () => {
   addgroup();
 })
+
+
+$(document).ready(function() {
+  $('#calendar').fullCalendar();
+});
