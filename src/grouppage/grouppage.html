@@ -4,7 +4,55 @@
     <link rel="stylesheet" href="grouppage.css">
     <script type="module" src="grouppage-functions.js" defer></script>
   </head>
-    <body>
-      <h3 id="login-title">Login to Let's Meet!</h3>
-    </body>
+  <body>
+    <div class="forms-out">
+      <div class="forms-in">
+
+        <div id="login-page">
+
+          <h3 id="group-title">Add a Group</h3>
+
+          <div id="group-container-top">
+            Join a group:
+            <div id="form">
+              Group code
+              <input type="text" id="group-code"/> <!-- this text should be 4 digits -->
+            </div>
+            <div id ="helpful-text"
+                <br> example: G890 </br>
+              </div>
+          </div>
+
+          <div id="group-container-bottom">
+            Create a group:
+            <div id="form">
+              Group name
+              <input type="text" id="group-code"/> <!-- this text should be 4 digits -->
+            </div>
+            <div id ="helpful-text"
+                <br> example: "Highschool Friends 2020" </br>
+              </div>
+          </div>
+
+          <div id="group-container-2">
+            <center>
+              <p>
+                <a href="#" id="show-back">Back to Homepage</a>
+              </p>
+            </center>
+          </div>
+        </div>
+
+        <div id="homepage" class="hide">
+          <button id="signout">Sign Out</button>
+          <h3>Logged In</h3>
+        </div>
+
+      </div>
+    </div>
+    
+    <script type="module"src="/src/firebase.js" defer></script>
+    <script type="module"src="/src/login/login-functions.js" defer></script>
+    
+  </body>
 </html>

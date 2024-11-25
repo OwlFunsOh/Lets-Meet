@@ -1,0 +1,109 @@
+.forms-out {
+  margin: 0 auto;
+  font-family: "Fira Sans", sans-serif;
+  padding: 15px 0;
+}
+
+.forms-in {
+  width: 100%;
+  color: black;
+}
+
+.forms-in div {
+  padding: 10px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #8fbdc7;
+  border-radius: 50px;
+}
+
+.forms-in h3 {
+  text-align: center;
+}
+
+.forms-in input {
+  width: 75%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border-color: black;
+  color: black;
+}
+
+.hide {
+  display: none;
+}
+
+/* The next section is for the login page */
+
+#forgot-password {
+  text-align: center;
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding-top: 10px;
+  text-decoration: underline;
+}
+
+#forgot-password:hover {
+  opacity: 0.6;
+}
+
+#form {
+margin: 5px;
+background-color: white;
+font-size: 16px;
+}
+
+#group-container-top {
+font-size: 1.5rem;
+background-color: white;
+margin-left: 50px;
+margin-right: 50px;
+}
+
+#group-container-bottom {
+  font-size: 1.5rem;
+  background-color: white;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 30px;
+  }
+
+#group-container-2 {
+background-color: white;
+margin-top: 30px;
+margin-left: 50px;
+margin-right: 50px;
+margin-bottom: 10px;
+font-size: 0.8rem
+}
+
+#helpful-text{
+  text-align: center;
+  font-size: 0.75rem;
+  background-color: white;
+}
+
+#show-back{
+color: black;
+}
+
+#show-back:hover{
+opacity: 0.6;
+}
+
+#login{
+font-size: 1.25rem;
+border-radius: 2rem;
+background: linear-gradient(to right, #cbfffd, #ffa9f9);
+color: black;
+width: 150px;
+height: 50px;
+}
+
+#group-title{
+font-size: 2rem;
+text-align: left;
+margin-left: 50px;
+}
+
