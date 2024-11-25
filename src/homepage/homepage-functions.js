@@ -58,5 +58,11 @@ document.querySelector("#add-group-button").addEventListener("click", () => {
 
 
 $(document).ready(function() {
-  $('#calendar').fullCalendar();
+  $('#calendar').fullCalendar({
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,agendaWeek'
+    }
+  });
 });
