@@ -52,9 +52,7 @@ logoutButton.addEventListener('click', () => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const calendarGrid = document.getElementById("calendar-grid");
-});
+
   // Alfonso: add joined group buttons, use #group-button css
 
 
