@@ -89,7 +89,6 @@ async function addgroup() {
 
 document.querySelector("#add-group-button").addEventListener("click", () => {
   addgroup();
-<<<<<<< HEAD
 })
 
 // Going to Settings page
@@ -100,17 +99,3 @@ async function settings() {
 document.querySelector("#settings").addEventListener("click", () => {
   settings();
 })
-
-
-$(document).ready(function() {
-  $('#calendar').fullCalendar({
-    header: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'month,agendaWeek'
-    }
-  });
-});
-=======
-})
->>>>>>> 5c1196e1f40edf98b756e1dca88e8e733f808f93
