@@ -48,12 +48,22 @@ onAuthStateChanged(auth, (user) => {
   }
 })
 
+// Going to Add a group page
 async function addgroup() {
   window.location.href = "/src/grouppage/grouppage.html";
 }
 
 document.querySelector("#add-group-button").addEventListener("click", () => {
   addgroup();
+})
+
+// Going to Settings page
+async function settings() {
+  window.location.href = "/src/settings/settings.html";
+}
+
+document.querySelector("#settings").addEventListener("click", () => {
+  settings();
 })
 
 

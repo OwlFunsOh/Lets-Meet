@@ -1,0 +1,108 @@
+.forms-out {
+  margin: 0 auto;
+  font-family: "Fira Sans", sans-serif;
+  padding: 15px 0;
+}
+
+.forms-in {
+  width: 100%;
+  color: black;
+}
+
+.forms-in div {
+  padding: 10px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #8fbdc7;
+  border-radius: 50px;
+}
+
+.forms-in h3 {
+  text-align: center;
+}
+
+.forms-in input {
+  width: 40%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border-color: black;
+  color: black;
+}
+
+.hide {
+  display: none;
+}
+
+.forms-in button{
+  font-size: 1.0rem;
+  border-radius: 0.5rem;
+  color: black;
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.forms-in button:hover{
+  opacity: 0.6;
+}
+
+/* end of class declarations */
+
+#form {
+margin: 5px;
+background-color: white;
+font-size: 16px;
+}
+
+#settings-container-top {
+font-size: 1.5rem;
+background-color: white;
+margin-left: 50px;
+margin-right: 50px;
+}
+
+/* used for the go back to homepage */
+#settings-container-2 {
+background-color: white;
+margin-top: 30px;
+margin-left: 50px;
+margin-right: 50px;
+margin-bottom: 10px;
+font-size: 0.8rem
+}
+
+#show-back{
+color: black;
+}
+
+#show-back:hover{
+opacity: 0.6;
+}
+
+#settings-title{
+font-size: 2rem;
+text-align: left;
+margin-left: 50px;
+}
+
+/* used for the database attributes "name, password, etc" cuz it looks pretty :) */
+#attribute{
+  font-size: 16px;
+  text-align: left;
+  background-color: white;
+  width: 55px;
+  float: left;
+}
+
+#forgot-password {
+  text-align: center;
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#forgot-password:hover {
+  opacity: 0.6;
+}
