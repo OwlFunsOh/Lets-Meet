@@ -34,20 +34,6 @@
   display: none;
 }
 
-/* The next section is for the login page */
-
-#forgot-password {
-  text-align: center;
-  font-size: 0.75rem;
-  cursor: pointer;
-  padding-top: 10px;
-  text-decoration: underline;
-}
-
-#forgot-password:hover {
-  opacity: 0.6;
-}
-
 #form {
 margin: 5px;
 background-color: white;
@@ -107,3 +93,32 @@ text-align: left;
 margin-left: 50px;
 }
 
+#join-button{
+  font-size: 1.0rem;
+  border-radius: 2rem;
+  background: linear-gradient(to right, #cbfffd, #ffa9f9);
+  color: black;
+  width: 80px;
+  height: 50px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+#join-button:hover{
+  opacity: 0.6;
+}
+
+#create-button{
+  font-size: 1.0rem;
+  border-radius: 2rem;
+  background: linear-gradient(to right, #cbfffd, #ffa9f9);
+  color: black;
+  width: 80px;
+  height: 50px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+#create-button:hover{
+  opacity: 0.6;
+}
