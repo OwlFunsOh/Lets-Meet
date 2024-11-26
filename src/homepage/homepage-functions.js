@@ -2,6 +2,40 @@ import { auth, db } from '/src/firebase.js';
 import { doc, collection, setDoc, addDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js'
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js'
 
+var EVENTLIST = [];
+var SCHEDULEARRAY = [];
+
+//get calendar schedule for the user in the database
+async function getScheudles(){
+  for (const scheduleId of SCHEDULEARRAY){
+    const scheduleDocRef = doc(db, "schedules", scheduleId);
+    const scheduleDocSnap = await getDoc(scheduleDocRef);
+
+    if(scheduleDocSnap.exists()) {
+      const scheduleData = scheduleDocSnap.data();
+      EVENTLIST.push({
+        title: scheduleData.title,
+        start: scheduleData.start_date,
+        end: scheduleData.end_date
+      });
+      console.log(EVENTLIST);
+    }else{
+      console.log("Schedule not found");
+    }
+
+    $(document).ready(function() {
+      $('#calendar').fullCalendar({
+        header: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'month,agendaWeek'
+        },
+        events: EVENTLIST
+      });
+    });
+  }
+}
+
 // Select the button by its ID
 const logoutButton = document.getElementById('logout');
 
@@ -18,9 +52,7 @@ logoutButton.addEventListener('click', () => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const calendarGrid = document.getElementById("calendar-grid");
-});
+
   // Alfonso: add joined group buttons, use #group-button css
 
 
@@ -33,10 +65,12 @@ onAuthStateChanged(auth, (user) => {
     getDoc(userDocRef).then((doc) => {
       if (doc.exists()) {
         const userData = doc.data();
+        SCHEDULEARRAY = userData.schedule;
         const userName = userData.name;
-
         //display greeting
         document.getElementById("greeting").textContent = "Hello, " + userName;
+
+        getScheudles()
       } else {
         console.log("User not found");
       }
@@ -55,6 +89,7 @@ async function addgroup() {
 
 document.querySelector("#add-group-button").addEventListener("click", () => {
   addgroup();
+<<<<<<< HEAD
 })
 
 // Going to Settings page
@@ -76,3 +111,6 @@ $(document).ready(function() {
     }
   });
 });
+=======
+})
+>>>>>>> 5c1196e1f40edf98b756e1dca88e8e733f808f93
