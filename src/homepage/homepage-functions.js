@@ -7,32 +7,47 @@ var SCHEDULEARRAY = [];
 
 //get calendar schedule for the user in the database
 async function getScheudles(){
-  for (const scheduleId of SCHEDULEARRAY){
-    const scheduleDocRef = doc(db, "schedules", scheduleId);
-    const scheduleDocSnap = await getDoc(scheduleDocRef);
+    if (SCHEDULEARRAY[0] != "") {
+    for (const scheduleId of SCHEDULEARRAY){
+      const scheduleDocRef = doc(db, "schedules", scheduleId);
+      const scheduleDocSnap = await getDoc(scheduleDocRef);
 
-    if(scheduleDocSnap.exists()) {
-      const scheduleData = scheduleDocSnap.data();
-      EVENTLIST.push({
-        title: scheduleData.title,
-        start: scheduleData.start_date,
-        end: scheduleData.end_date
+      if(scheduleDocSnap.exists()) {
+        const scheduleData = scheduleDocSnap.data();
+        EVENTLIST.push({
+          title: scheduleData.title,
+          start: scheduleData.start_date,
+          end: scheduleData.end_date
+        });
+        console.log(EVENTLIST);
+      }else{
+        console.log("Schedule not found");
+      }
+
+      $(document).ready(function() {
+        $('#calendar').fullCalendar({
+          header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek'
+          },
+          events: EVENTLIST
+        });
       });
-      console.log(EVENTLIST);
-    }else{
-      console.log("Schedule not found");
     }
-
+  }
+  //if no events in calendar
+  else {
     $(document).ready(function() {
       $('#calendar').fullCalendar({
         header: {
           left: 'prev,next today',
           center: 'title',
           right: 'month,agendaWeek'
-        },
-        events: EVENTLIST
+        }
       });
     });
+    
   }
 }
 
@@ -67,10 +82,12 @@ onAuthStateChanged(auth, (user) => {
         const userData = doc.data();
         SCHEDULEARRAY = userData.schedule;
         const userName = userData.name;
+
         //display greeting
         document.getElementById("greeting").textContent = "Hello, " + userName;
 
-        getScheudles()
+        getScheudles();
+        console.log("Schedules retrieved");
       } else {
         console.log("User not found");
       }

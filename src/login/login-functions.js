@@ -41,7 +41,8 @@ async function register_user_to_db(email, userID) {
         const docRef = await setDoc(doc(db, "users", userID), {
             name: "User",
             email: email,
-            groups: [""]
+            groups: [""],
+            schedule: [""]
         });
         console.log("Document written with ID: ", docRef.id);
     } catch (error) {
