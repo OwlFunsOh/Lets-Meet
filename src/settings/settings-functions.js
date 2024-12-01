@@ -1,6 +1,6 @@
 import { auth, db } from '/src/firebase.js';
 import { doc, collection, setDoc, addDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js'
-import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js'
+import { getAuth, updateProfile, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js'
 
 // Return to homepage
 async function back_button() {
@@ -12,6 +12,25 @@ document.querySelector("#show-back").addEventListener("click", () => {
 
 async function changeName() {
   // program
+  
+  const auth = getAuth();
+  const newName = document.querySelector("#name").value;
+
+  onAuthStateChanged(auth, (user) => {
+      if (user) {
+          updateProfile(user, {
+              name: newName
+          }).then(() => {
+              console.log("Name updated successfully! Welcome, " + newName + ".");
+              // Optionally update this info in Firestore or Realtime Database
+          }).catch((error) => {
+              console.error("Error updating name:", error);
+          });
+      } else {
+          console.log("No user is signed in.");
+      }
+  });
+  
 }
 document.querySelector("#name-button").addEventListener("click", () => {
   changeName();
