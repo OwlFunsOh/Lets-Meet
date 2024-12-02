@@ -5,19 +5,6 @@ import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/
 var EVENTLIST = [];
 var SCHEDULEARRAY = [];
 
-var newList = [
-  {
-    title: "test",
-    start: "2024-12-03T15:00",
-    end: "2024-01-02"
-  },
-  {
-    title: "test2",
-    start: "2024-12-03T16:00",
-    end: "2024-01-04"
-  }
-];
-
 //get calendar schedule for the user in the database
 async function getScheudles(){
   for (const scheduleId of SCHEDULEARRAY) {
