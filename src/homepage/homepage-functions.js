@@ -5,50 +5,48 @@ import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/
 var EVENTLIST = [];
 var SCHEDULEARRAY = [];
 
+var newList = [
+  {
+    title: "test",
+    start: "2024-12-03T15:00",
+    end: "2024-01-02"
+  },
+  {
+    title: "test2",
+    start: "2024-12-03T16:00",
+    end: "2024-01-04"
+  }
+];
+
 //get calendar schedule for the user in the database
 async function getScheudles(){
-    if (SCHEDULEARRAY[0] != "") {
-    for (const scheduleId of SCHEDULEARRAY){
-      const scheduleDocRef = doc(db, "schedules", scheduleId);
-      const scheduleDocSnap = await getDoc(scheduleDocRef);
+  for (const scheduleId of SCHEDULEARRAY) {
+    const scheduleDocRef = doc(db, "schedules", scheduleId);
+    const scheduleDocSnap = await getDoc(scheduleDocRef);
 
-      if(scheduleDocSnap.exists()) {
-        const scheduleData = scheduleDocSnap.data();
-        EVENTLIST.push({
-          title: scheduleData.title,
-          start: scheduleData.start_date,
-          end: scheduleData.end_date
-        });
-        console.log(EVENTLIST);
-      }else{
-        console.log("Schedule not found");
-      }
-
-      $(document).ready(function() {
-        $('#calendar').fullCalendar({
-          header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'month,agendaWeek'
-          },
-          events: EVENTLIST
-        });
+    if (scheduleDocSnap.exists()) {
+      const scheduleData = scheduleDocSnap.data();
+      EVENTLIST.push({
+        title: scheduleData.title,
+        start: scheduleData.start_date,
+        end: scheduleData.end_date
       });
+    } else {
+      console.log("Schedule not found:", scheduleId);
     }
   }
-  //if no events in calendar
-  else {
-    $(document).ready(function() {
-      $('#calendar').fullCalendar({
-        header: {
-          left: 'prev,next today',
-          center: 'title',
-          right: 'month,agendaWeek'
-        }
-      });
+
+  // Initialize FullCalendar after fetching all data
+  $(document).ready(function() {
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek'
+      },
+      events: EVENTLIST
     });
-    
-  }
+  });
 }
 
 // Select the button by its ID
