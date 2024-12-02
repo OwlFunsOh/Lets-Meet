@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script> 
     <link rel="stylesheet" href="homepage.css">
     <script type="module" src="homepage-functions.js" defer></script>
   </head>
@@ -11,9 +16,12 @@
       </div>
 
       <div class = "background-container">
-        <div id = "groups-container"></div>
+        <div id = "groups-container">
+          <button id="add-group-button">Create/Add Group</button>
+          <button id="settings">Settings</button>
+        </div>
         <div id = "calendar-container">
-          <div id = "calendar-grid">
+          <div id = "calendar">
           </div>
         </div>
       </div>
