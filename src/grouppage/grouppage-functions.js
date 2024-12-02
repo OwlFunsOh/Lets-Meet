@@ -9,7 +9,7 @@ function joinGroup() {
   if (groupcode.exists()){
     //join group
   } else{
-    console.log("Group code does not exist");
+    alert("Group code does not exist");
   }
 }
 document.querySelector("#join-button").addEventListener("click", () => {
@@ -20,9 +20,9 @@ document.querySelector("#join-button").addEventListener("click", () => {
 async function createGroup() {
    const groupname = document.querySelector("#group-title").value
   if (groupname.length >= 3){
-    console.log("Group name is too short");
+    alert("Group name is too short");
   }else if (groupnamename.length <= 20) {
-    console.log("Group name is too long");
+    alert("Group name is too long");
   }else{
     //create group
     //join group
