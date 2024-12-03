@@ -71,7 +71,7 @@ onAuthStateChanged(auth, (user) => {
         //display greeting
         document.getElementById("greeting").textContent = "Hello, " + userName;
 
-        getScheudles();
+        getSchedules();
         console.log("Schedules retrieved");
       } else {
         console.log("User not found");
