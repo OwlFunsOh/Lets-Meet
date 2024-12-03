@@ -7,19 +7,21 @@ var SCHEDULEARRAY = [];
 
 //get calendar schedule for the user in the database
 async function getSchedules(){
-  for (const scheduleId of SCHEDULEARRAY) {
-    const scheduleDocRef = doc(db, "schedules", scheduleId);
-    const scheduleDocSnap = await getDoc(scheduleDocRef);
-
-    if (scheduleDocSnap.exists()) {
-      const scheduleData = scheduleDocSnap.data();
-      EVENTLIST.push({
-        title: scheduleData.title,
-        start: scheduleData.start_date,
-        end: scheduleData.end_date
-      });
-    } else {
-      console.log("Schedule not found:", scheduleId);
+  if(SCHEDULEARRAY[0] != ""){
+    for (const scheduleId of SCHEDULEARRAY) {
+      const scheduleDocRef = doc(db, "schedules", scheduleId);
+      const scheduleDocSnap = await getDoc(scheduleDocRef);
+  
+      if (scheduleDocSnap.exists()) {
+        const scheduleData = scheduleDocSnap.data();
+        EVENTLIST.push({
+          title: scheduleData.title,
+          start: scheduleData.start_date,
+          end: scheduleData.end_date
+        });
+      } else {
+        console.log("Schedule not found:", scheduleId);
+      }
     }
   }
 
