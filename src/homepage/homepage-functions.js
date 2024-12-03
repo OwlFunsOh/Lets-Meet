@@ -6,7 +6,7 @@ var EVENTLIST = [];
 var SCHEDULEARRAY = [];
 
 //get calendar schedule for the user in the database
-async function getScheudles(){
+async function getSchedules(){
   for (const scheduleId of SCHEDULEARRAY) {
     const scheduleDocRef = doc(db, "schedules", scheduleId);
     const scheduleDocSnap = await getDoc(scheduleDocRef);
