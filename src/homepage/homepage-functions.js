@@ -1,9 +1,10 @@
 import { auth, db } from '/src/firebase.js';
-import { doc, collection, setDoc, addDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js'
+import { doc, collection, setDoc, addDoc, getDoc, updateDoc, arrayUnion, arrayRemove } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js'
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js'
 
 var EVENTLIST = [];
 var SCHEDULEARRAY = [];
+var USERID = "";
 
 function showHomepage(){
   document.querySelector("#calendar-container").classList.add("show");
@@ -84,8 +85,8 @@ logoutButton.addEventListener('click', () => {
 //adding greeting
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    const userId = user.uid;
-    const userDocRef = doc(db, "users", userId);
+    USERID = user.uid;
+    const userDocRef = doc(db, "users", USERID);
 
     getDoc(userDocRef).then((doc) => {
       if (doc.exists()) {
@@ -143,7 +144,59 @@ document.getElementById('to-homepage').addEventListener('click', () => {
 
 document.getElementById('add-event').addEventListener('click', () => {
   const eventName = document.getElementById('event-name');
-  const eventStart = document.getElementById('start-date-time')
-  const eventEnd = document.getElementById('end-date-time')
-  console.log(eventEnd.value);
+  const eventStart = document.getElementById('start-date-time');
+  const eventEnd = document.getElementById('end-date-time');
+
+  register_schedule_to_db(eventName.value, eventStart.value, eventEnd.value);
 })
+
+
+async function register_schedule_to_db(eventName, eventStart, eventEnd) {
+  var docRef;
+  try{
+      docRef = await addDoc(collection(db, "schedules"), {
+          start_date: eventStart,
+          end_date: eventEnd,
+          title: eventName
+      });
+      console.log("Document written to schedules with ID: ", docRef.id);
+  } catch (error) {
+      console.log("Error adding document: ", error);
+  }
+
+  //update the array
+  try{
+      const userDocRef = doc(db, "users", USERID);
+      const userDocSnap = await getDoc(userDocRef);
+
+      if (userDocSnap.exists()) {
+          const userData = userDocSnap.data();
+          const scheduleField = userData["schedule"];
+
+          if(scheduleField[0] == ""){
+            //append document
+            await updateDoc(userDocRef, {
+              ["schedule"]: arrayUnion(docRef.id)
+            });
+            
+            //remove first document
+            await updateDoc(userDocRef, {
+              ["schedule"]: arrayRemove(scheduleField[0])
+            });
+            console.log("schedule replaced")
+          }else{
+            //append new element
+            await updateDoc(userDocRef, {
+              ["schedule"]: arrayUnion(docRef.id)
+            });
+            console.log("schedule appended")
+          }
+      }
+      
+  } catch (error) {
+      console.log("Error updating document: ", error);
+  }
+
+  //check if the first element is empty
+}
+
