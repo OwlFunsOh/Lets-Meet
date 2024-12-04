@@ -25,7 +25,11 @@ async function changeName(name) {
 }
 document.querySelector("#name-button").addEventListener("click", () => {
   const name = document.getElementById('name').value;
-  changeName(name);
+  if (name == "") {
+    alert("Please enter a name");
+  }else{
+    changeName(name);
+  }
 })
 
 async function changeEmail() {
