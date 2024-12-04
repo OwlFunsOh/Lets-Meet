@@ -130,6 +130,7 @@ document.querySelector("#settings").addEventListener("click", () => {
   settings();
 })
 
+
 document.querySelector("#add-event-button").addEventListener("click", () => {
   showPopup();
 })
