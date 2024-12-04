@@ -22,10 +22,24 @@
   height: 60px;
   cursor: pointer;
   margin-right: 20px;
-  margin-left: 10px;
+  margin-left: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
   
+}
+
+#add-event-button{
+    font-size: 1.25rem;
+    border-radius: 2rem;
+    background: #dfe1d5;
+    color: black;
+    width: 200px;
+    height: 60px;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #settings:hover{
@@ -40,7 +54,7 @@
   width: 200px;
   height: 60px;
   cursor: pointer;
-  margin-left: 10px;
+  margin-left: 20px;
   margin-top: 50px;
   margin-bottom: 10px;
   
@@ -110,3 +124,69 @@
   margin-top: 45px;
   margin-bottom: 45px;
 }
+
+.fade{
+  opacity: 0.1;
+}
+
+.hide{
+  opacity: 0;
+}
+
+.show{
+  opacity: 1;
+}
+
+#event-popup{
+  padding: 30px;
+  padding-top: 10px;
+  border-radius: 2.5rem;
+  background-color: #8fbdc7;
+  position: fixed;
+  top: 20%;
+  left: 40%;
+}
+
+#event-title{
+  display: flex;
+  justify-content: space-between;
+  background-color: #dfe1d5;
+  width: 250px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#start-date{
+  display: flex;
+  justify-content: space-between;
+  background-color: #dfe1d5;
+  width: 250px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#end-date{
+  display: flex;
+  justify-content: space-between;
+  background-color: #dfe1d5;
+  width: 250px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#event-name{
+  width: 188px;
+}
+
+#end-date-time{
+  width: 189px;
+}
+
+.content{
+  text-align: center;
+}
+
+

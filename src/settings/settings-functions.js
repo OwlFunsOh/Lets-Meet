@@ -1,6 +1,9 @@
 import { auth, db } from '/src/firebase.js';
-import { doc, collection, setDoc, addDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js'
-import { getAuth, updateProfile, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js'
+import { doc, collection, setDoc, addDoc, getDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js'
+import { getAuth, updateProfile, onAuthStateChanged, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js'
+
+var USERID = "";
+var EMAIL = "";
 
 // Return to homepage
 async function back_button() {
@@ -10,30 +13,24 @@ document.querySelector("#show-back").addEventListener("click", () => {
   back_button();
 })
 
-async function changeName() {
-  // program
-  
-  const auth = getAuth();
-  const newName = document.querySelector("#name").value;
-
-  onAuthStateChanged(auth, (user) => {
-      if (user) {
-          updateProfile(user, {
-              name: newName
-          }).then(() => {
-              console.log("Name updated successfully! Welcome, " + newName + ".");
-              // Optionally update this info in Firestore or Realtime Database
-          }).catch((error) => {
-              console.error("Error updating name:", error);
-          });
-      } else {
-          console.log("No user is signed in.");
-      }
-  });
-  
+async function changeName(name) {
+  try{
+    const userDocRef = doc(db, "users", USERID);
+    await updateDoc(userDocRef, {
+      name: name
+    });
+    alert("Name successfully changed.");
+  } catch (error) {
+      console.log("Error adding document: ", error);
+  }
 }
 document.querySelector("#name-button").addEventListener("click", () => {
-  changeName();
+  const name = document.getElementById('name').value;
+  if (name == "") {
+    alert("Please enter a name");
+  }else{
+    changeName(name);
+  }
 })
 
 async function changeEmail() {
@@ -56,21 +53,21 @@ document.querySelector("#password-button").addEventListener("click", () => {
 //adding pre-input of the user name and email from our database
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    const userId = user.uid;
-    const userDocRef = doc(db, "users", userId);
+    USERID = user.uid;
+    const userDocRef = doc(db, "users", USERID);
 
     getDoc(userDocRef).then((doc) => {
       if (doc.exists()) {
         const userData = doc.data();
         const userName = userData.name;
-        const userEmail = userData.email;
+        EMAIL = userData.email;
 
         var input = document.getElementById('name');
         var user_name = userName;
         input.value = user_name;
 
         var input2 = document.getElementById("email")
-        var user_email = userEmail;
+        var user_email = EMAIL;
         input2.value = user_email;
 
       } else {
@@ -87,8 +84,7 @@ onAuthStateChanged(auth, (user) => {
 
 //forgot password stuff
 function resetPassword(){
-  const email = userData.email;
-  sendPasswordResetEmail(auth, email)
+  sendPasswordResetEmail(auth, EMAIL)
   .then(() => {
       alert("Password reset email sent!")
   })

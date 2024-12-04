@@ -19,10 +19,29 @@
         <div id = "groups-container">
           <button id="add-group-button">Create/Add Group</button>
           <button id="settings">Settings</button>
+          <button id="add-event-button">Add Event</button>
         </div>
         <div id = "calendar-container">
           <div id = "calendar">
           </div>
+        </div>
+      </div>
+
+      <div class="hide" id="event-popup">
+        <div class="content">
+          <h1>Add event</h1>
+          <div id="event-title">Title:
+            <input type="text" id="event-name"/>
+          </div>
+          <div id="start-date">Start: 
+            <input type="datetime-local" id="start-date-time"/>
+          </div>
+          <div id="end-date">End:
+            <input type="datetime-local" id="end-date-time"/>
+          </div>
+
+          <button id="to-homepage">Return</button>
+          <button id="add-event">Add Event</button>
         </div>
       </div>
     </body>
