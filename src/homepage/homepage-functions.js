@@ -191,6 +191,9 @@ async function register_schedule_to_db(eventName, eventStart, eventEnd) {
             });
             console.log("schedule appended")
           }
+          //alert the user that the schedule has been added
+          alert("Schedule added to your calendar!");
+          window.location.href = "/src/homepage/homepage.html";
       }
       
   } catch (error) {
