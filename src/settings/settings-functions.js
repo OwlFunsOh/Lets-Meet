@@ -1,8 +1,9 @@
 import { auth, db } from '/src/firebase.js';
 import { doc, collection, setDoc, addDoc, getDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js'
-import { getAuth, updateProfile, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js'
+import { getAuth, updateProfile, onAuthStateChanged, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js'
 
 var USERID = "";
+var EMAIL = "";
 
 // Return to homepage
 async function back_button() {
@@ -59,14 +60,14 @@ onAuthStateChanged(auth, (user) => {
       if (doc.exists()) {
         const userData = doc.data();
         const userName = userData.name;
-        const userEmail = userData.email;
+        EMAIL = userData.email;
 
         var input = document.getElementById('name');
         var user_name = userName;
         input.value = user_name;
 
         var input2 = document.getElementById("email")
-        var user_email = userEmail;
+        var user_email = EMAIL;
         input2.value = user_email;
 
       } else {
@@ -83,8 +84,7 @@ onAuthStateChanged(auth, (user) => {
 
 //forgot password stuff
 function resetPassword(){
-  const email = userData.email;
-  sendPasswordResetEmail(auth, email)
+  sendPasswordResetEmail(auth, EMAIL)
   .then(() => {
       alert("Password reset email sent!")
   })
