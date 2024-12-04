@@ -147,8 +147,16 @@ document.getElementById('add-event').addEventListener('click', () => {
   const eventStart = document.getElementById('start-date-time');
   const eventEnd = document.getElementById('end-date-time');
 
-  register_schedule_to_db(eventName.value, eventStart.value, eventEnd.value);
-})
+  if(eventName.value == ""){
+    alert("Event name is empty");
+  }else if(eventStart.value == "" || eventEnd.value == ""){
+    alert("Start and/or end date are empty");
+  }else if(eventStart.value >= eventEnd.value){
+    alert("Start date must be before end date");
+  }else{
+    register_schedule_to_db(eventName.value, eventStart.value, eventEnd.value);
+  }
+});
 
 
 async function register_schedule_to_db(eventName, eventStart, eventEnd) {
