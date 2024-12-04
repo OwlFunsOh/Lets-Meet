@@ -115,3 +115,6 @@ document.querySelector("#add-event-button").addEventListener("click", () => {
 document.getElementById('add-event-popup').addEventListener('click', () => {
   document.getElementById('event-popup').style.display = 'block';
 })
+
+//return to homepage from "add-event" screen
+
