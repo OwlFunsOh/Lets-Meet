@@ -5,6 +5,29 @@ import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/
 var EVENTLIST = [];
 var SCHEDULEARRAY = [];
 
+function showHomepage(){
+  document.querySelector("#calendar-container").classList.add("show");
+  document.querySelector("#groups-container").classList.add("show");
+  document.querySelector("#greeting").classList.add("show");
+  document.querySelector("#logout").classList.add("show");
+  document.querySelector("#event-popup").classList.add("hide");
+  document.querySelector("#event-popup").classList.remove("show");
+}
+
+function showPopup(){
+  document.querySelector("#calendar-container").classList.remove("show");
+  document.querySelector("#groups-container").classList.remove("show");
+  document.querySelector("#greeting").classList.remove("show");
+  document.querySelector("#logout").classList.remove("show");
+  document.querySelector("#event-popup").classList.remove("hide");
+
+  document.querySelector("#calendar-container").classList.add("fade");
+  document.querySelector("#groups-container").classList.add("fade");
+  document.querySelector("#greeting").classList.add("fade");
+  document.querySelector("#logout").classList.add("fade");
+  document.querySelector("#event-popup").classList.add("show");
+}
+
 //get calendar schedule for the user in the database
 async function getSchedules(){
   if(SCHEDULEARRAY[0] != ""){
@@ -84,6 +107,8 @@ onAuthStateChanged(auth, (user) => {
   } else {
     console.log("User is not signed in");
   }
+
+  showHomepage();
 })
 
 // Going to Add a group page
@@ -105,16 +130,20 @@ document.querySelector("#settings").addEventListener("click", () => {
 })
 
 document.querySelector("#add-event-button").addEventListener("click", () => {
-  document.querySelector("#calendar-container").classList.add("fade");
-  document.querySelector("#groups-container").classList.add("fade");
-  document.querySelector("#greeting").classList.add("fade");
-  document.querySelector("#logout").classList.add("fade");
-  document.querySelector("#event-popup").classList.remove("hide");
+  showPopup();
 })
 
-document.getElementById('add-event-popup').addEventListener('click', () => {
+document.getElementById('add-event-button').addEventListener('click', () => {
   document.getElementById('event-popup').style.display = 'block';
 })
 
-//return to homepage from "add-event" screen
+document.getElementById('to-homepage').addEventListener('click', () => {
+  showHomepage();
+})
 
+document.getElementById('add-event').addEventListener('click', () => {
+  const eventName = document.getElementById('event-name');
+  const eventStart = document.getElementById('start-date-time')
+  const eventEnd = document.getElementById('end-date-time')
+  console.log(eventEnd.value);
+})
