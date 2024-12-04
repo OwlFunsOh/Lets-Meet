@@ -103,3 +103,15 @@ async function settings() {
 document.querySelector("#settings").addEventListener("click", () => {
   settings();
 })
+
+document.querySelector("#add-event-button").addEventListener("click", () => {
+  document.querySelector("#calendar-container").classList.add("fade");
+  document.querySelector("#groups-container").classList.add("fade");
+  document.querySelector("#greeting").classList.add("fade");
+  document.querySelector("#logout").classList.add("fade");
+  document.querySelector("#event-popup").classList.remove("hide");
+})
+
+document.getElementById('add-event-popup').addEventListener('click', () => {
+  document.getElementById('event-popup').style.display = 'block';
+})
